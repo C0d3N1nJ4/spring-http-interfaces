@@ -1,7 +1,8 @@
 # spring-http-interfaces
 
-This demo project consumes the service available at (no authentication is required):
+This demo project consumes the service available at:
 https://jsonplaceholder.typicode.com/users
+(no authentication is required) using an HTTP REST client
 
 Example response :
 

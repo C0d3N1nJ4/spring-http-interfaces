@@ -1,4 +1,4 @@
-package com.naiomi.http.interfaces.user;
+package com.naiomi.http.interfaces.model;
 
 public record User(
         Integer id,
@@ -8,7 +8,4 @@ public record User(
         Address address,
         String phone,
         String website,
-        Company company
-
-) {
-}
+        Company company) { }

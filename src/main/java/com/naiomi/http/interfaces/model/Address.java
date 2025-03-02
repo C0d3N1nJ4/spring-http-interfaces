@@ -1,4 +1,4 @@
-package com.naiomi.http.interfaces.user;
+package com.naiomi.http.interfaces.model;
 
 public record Address(
         String street,

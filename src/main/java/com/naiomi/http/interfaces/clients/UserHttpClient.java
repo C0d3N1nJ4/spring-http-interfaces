@@ -1,5 +1,6 @@
-package com.naiomi.http.interfaces.user;
+package com.naiomi.http.interfaces.clients;
 
+import com.naiomi.http.interfaces.model.User;
 import org.springframework.web.service.annotation.GetExchange;
 
 import java.util.List;

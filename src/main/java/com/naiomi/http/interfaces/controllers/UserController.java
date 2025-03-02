@@ -1,5 +1,7 @@
-package com.naiomi.http.interfaces.user;
+package com.naiomi.http.interfaces.controllers;
 
+import com.naiomi.http.interfaces.model.User;
+import com.naiomi.http.interfaces.clients.UserRestClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
