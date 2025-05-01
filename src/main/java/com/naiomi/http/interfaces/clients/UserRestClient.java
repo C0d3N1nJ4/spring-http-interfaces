@@ -1,6 +1,7 @@
 package com.naiomi.http.interfaces.clients;
 
 import com.naiomi.http.interfaces.model.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
@@ -12,9 +13,10 @@ public class UserRestClient {
 
     private final RestClient restClient;
 
-    public UserRestClient(RestClient.Builder restClient) {
-        this.restClient = RestClient.builder()
-                .baseUrl("https://jsonplaceholder.typicode.com")
+    public UserRestClient(RestClient.Builder restClientBuilder, 
+                          @Value("${api.base.url}") String baseUrl) {
+        this.restClient = restClientBuilder
+                .baseUrl(baseUrl)
                 .build();
     }
 
@@ -22,7 +24,7 @@ public class UserRestClient {
         return restClient.get()
                 .uri("/users")
                 .retrieve()
-                .body(new ParameterizedTypeReference<>() {});
+                .body(new ParameterizedTypeReference<List<User>>() {});
     }
 
     public User findById(Integer id) {
