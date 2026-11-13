@@ -15,8 +15,7 @@ updates:
       - "dependencies"
       - "java"
     commit-message:
-      prefix: "build:"
-      prefix-scope: "deps"
+      prefix: "build(deps):"
       include: "scope"
     pull-request-branch-name:
       separator: "/"
@@ -40,5 +39,4 @@ updates:
       - "dependencies"
       - "github-actions"
     commit-message:
-      prefix: "ci:"
-      prefix-scope: "deps"
+      prefix: "ci(deps):"
