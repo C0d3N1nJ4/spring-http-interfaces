@@ -171,7 +171,16 @@ curl http://localhost:8080/users
 curl http://localhost:8080/users/1
 ```
 
-4. Expected response (curl http://localhost:8080/users/1):
+4. Check Actuator endpoints (health, metrics, info):
+
+```bash
+curl http://localhost:8080/actuator
+curl http://localhost:8080/actuator/health
+curl http://localhost:8080/actuator/metrics
+curl http://localhost:8080/actuator/info
+```
+
+5. Expected response (curl http://localhost:8080/users/1):
 
 ```json
 {
@@ -198,6 +207,73 @@ curl http://localhost:8080/users/1
     }
 }
 ```
+
+## Monitoring with Spring Boot Actuator
+
+This project includes [Spring Boot Actuator](https://docs.spring.io/spring-boot/reference/actuator/index.html) for application monitoring and metrics.
+
+### Exposed endpoints
+
+The following Actuator endpoints are available at `/actuator`:
+
+- `/health` — Application health status
+- `/info` — Application information (Java version, OS details)
+- `/metrics` — Application metrics (JVM, process, system)
+- `/env` — Environment variables and properties
+- `/loggers` — Logger configuration and levels
+
+### Accessing Actuator endpoints
+
+Start the application and access endpoints via HTTP:
+
+```bash
+# List all available endpoints
+curl http://localhost:8080/actuator
+
+# Check application health
+curl http://localhost:8080/actuator/health
+
+# View application info
+curl http://localhost:8080/actuator/info
+
+# Get detailed metrics
+curl http://localhost:8080/actuator/metrics
+curl http://localhost:8080/actuator/metrics/jvm.memory.used
+curl http://localhost:8080/actuator/metrics/process.uptime
+
+# View environment properties
+curl http://localhost:8080/actuator/env
+
+# List loggers
+curl http://localhost:8080/actuator/loggers
+```
+
+### Configuration
+
+Actuator is configured in `application.yml`:
+
+```yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env,loggers
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    enable:
+      jvm: true
+      process: true
+      system: true
+```
+
+Key settings:
+- **exposure.include**: Controls which endpoints are exposed
+- **base-path**: Base URL path for all Actuator endpoints
+- **health.show-details**: Shows detailed health info when authorized
+- **metrics.enable**: Enables specific metric categories (JVM, process, system)
 
 ## Code formatting with Spotless
 
