@@ -343,32 +343,6 @@ mvn clean verify
 - Verifies response status codes and JSON payloads
 - Verifies that the correct client methods are invoked
 
-## Project structure
-
-```
-src/main/java/com/naiomi/http/interfaces/
-├── HttpInterfacesApplication.java    # Spring Boot entry point
-├── clients/
-│   └── UserHttpClient.java           # Declarative HTTP interface
-├── config/
-│   └── HttpClientConfig.java         # HTTP client bean registration
-├── controllers/
-│   └── UserController.java           # REST controller
-└── model/
-    ├── User.java                     # User record
-    ├── Address.java                  # Address record
-    ├── Company.java                  # Company record
-    └── Geo.java                      # Geo record
-
-src/test/java/com/naiomi/http/interfaces/
-├── clients/
-│   └── UserHttpClientTest.java       # HTTP client tests
-├── controllers/
-│   └── UserControllerTest.java       # Controller tests
-└── support/
-    └── UserFixtures.java             # Test data builder
-```
-
 ## Example user payload
 
 ```json
