@@ -199,6 +199,48 @@ curl http://localhost:8080/users/1
 }
 ```
 
+## Code formatting with Spotless
+
+This project uses [Spotless](https://github.com/diffplug/spotless) with [Google Java Format 1.30.0](https://github.com/google/google-java-format) to enforce consistent code style across the entire codebase.
+
+### Formatting commands
+
+Check code style compliance:
+
+```bash
+mvn spotless:check
+```
+
+Automatically format all source code:
+
+```bash
+mvn spotless:apply
+```
+
+Format code as part of the build:
+
+```bash
+mvn clean verify
+```
+
+The build includes Spotless checking, so all code must be properly formatted to pass verification.
+
+### Formatting standards
+
+- **Formatter**: Google Java Format 1.30.0 (Java 25 compatible)
+- **Import order**: `java` → `javax` → `org` → `com`
+- **Unused imports**: Automatically removed
+- **Line length**: 100 characters
+- **Indentation**: 2 spaces
+
+### IDE integration
+
+Most IDEs support Google Java Format through plugins:
+
+- **IntelliJ IDEA**: Install "Google Java Format" plugin (File → Settings → Plugins)
+- **Eclipse**: Use built-in formatter or install Spotless Eclipse plugin
+- **VS Code**: Install "Google Java Format for VS Code" extension
+
 ## How to test
 
 Run unit tests:
