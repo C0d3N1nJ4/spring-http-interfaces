@@ -15,7 +15,7 @@
 	<description>spring-http-interfaces</description>
 	<properties>
 		<java.version>25</java.version>
-		<spotless.version>3.10.3</spotless.version>
+		<spotless.version>3.11.0</spotless.version>
 		<google-java-format.version>1.30.0</google-java-format.version>
 		<error-prone.version>2.34.0</error-prone.version>
 	</properties>
