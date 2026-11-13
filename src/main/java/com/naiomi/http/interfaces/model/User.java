@@ -1,11 +1,11 @@
 package com.naiomi.http.interfaces.model;
 
 public record User(
-        Integer id,
-        String name,
-        String username,
-        String email,
-        Address address,
-        String phone,
-        String website,
-        Company company) { }
+    Integer id,
+    String name,
+    String username,
+    String email,
+    Address address,
+    String phone,
+    String website,
+    Company company) {}
